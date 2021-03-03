@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 24, 2021 at 06:02 AM
+-- Generation Time: Mar 03, 2021 at 10:27 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -24,6 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `userid` int NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `following`
 --
 
@@ -31,7 +43,7 @@ DROP TABLE IF EXISTS `following`;
 CREATE TABLE IF NOT EXISTS `following` (
   `followid` int NOT NULL,
   `followerid` int NOT NULL,
-  KEY `followid` (`followid`),
+  PRIMARY KEY (`followid`,`followerid`),
   KEY `followerid` (`followerid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -46,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `postid` int NOT NULL AUTO_INCREMENT,
   `message` varchar(256) NOT NULL,
   `dateposted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `file` varchar(128) DEFAULT NULL,
+  `file` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `userid` int NOT NULL,
   PRIMARY KEY (`postid`),
   KEY `userid` (`userid`)
@@ -61,13 +73,14 @@ CREATE TABLE IF NOT EXISTS `post` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `userid` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) NOT NULL,
+  `nickname` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `password` varchar(32) NOT NULL,
-  `email` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `email` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `profilepicture` varchar(32) DEFAULT NULL,
+  `bio` varchar(128) DEFAULT NULL,
   `fname` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `lname` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -81,6 +94,7 @@ DROP TABLE IF EXISTS `usergroup`;
 CREATE TABLE IF NOT EXISTS `usergroup` (
   `groupid` int NOT NULL AUTO_INCREMENT,
   `gname` varchar(32) NOT NULL,
+  `gpicture` varchar(32) DEFAULT NULL,
   `gdescription` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`groupid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -102,6 +116,12 @@ CREATE TABLE IF NOT EXISTS `userxusergroup` (
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `following`
+--
+ALTER TABLE `following`
+  ADD CONSTRAINT `followid` FOREIGN KEY (`followid`) REFERENCES `user` (`userid`);
 
 --
 -- Constraints for table `userxusergroup`
