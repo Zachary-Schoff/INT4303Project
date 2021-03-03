@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color: rgba(0, 0, 0, 0.75);
+	width: 95%;
+	height: 95%;
+}
+h1{
+	background-color: blue;
+	color: white;
+	text-align: center;
+	border: 1px solid black;
+}
+h3{
+	background-color: blue;
+	color: white;
+	text-align: left;
+	border: 1px solid black;
+}
+.topnav {
+	background-color: blue;
+	overflow: hidden;
+	display: inline-block;
+	width: auto
+}
+.topnav a {
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	border: 1px solid black
+}
+.dash:hover{
+	background-color: darkslategrey
+}
+form{
+	color: white;
+}
+.title {
+	text-align: center;
+	width: auto
+}
+.post {
+	color: white;
+	background-color: blue;
+	
+}
+.dash:hover{
+	background-color: darkslategrey
+}
