@@ -8,10 +8,10 @@ $dob = $_REQUEST['dob'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 
-$sql = " CALL createuser($fname, $lname, $email, $dob, $username, $password)";
+$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password');";
 
 if($conn-> query($sql) === TRUE){
-	echo "Account created successfully.";
+	
 } else{
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -51,5 +51,6 @@ $conn->close();
 		<input type="text" id="password" name="password">
 		<input type="submit" value="Submit">
 	</form>
+	<p>Account created successfully!</p>
 </body>
 </html>
