@@ -8,12 +8,14 @@ $dob = $_REQUEST['dob'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 
-$sql = " INSERT INTO user (fname, lname, email, dob, nickname, password) VALUES ('$fname', '$lname', '$email','$dob', '$username', '$password');";
+$sql = " CALL createuser($fname, $lname, $email, $dob, $username, $password)";
+
 if($conn-> query($sql) === TRUE){
 	echo "Account created successfully.";
 } else{
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
 $conn->close();
 ?>
 <!doctype html>
