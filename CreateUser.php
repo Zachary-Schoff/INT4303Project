@@ -1,16 +1,16 @@
 <?php
 include 'Connection.php';
 
-$ = $_REQUEST[''];
-$ = $_REQUEST[''];
-$ = $_REQUEST[''];
-$ = $_REQUEST[''];
-$ = $_REQUEST[''];
-$ = $_REQUEST[''];
+$fname = $_REQUEST['fname'];
+$lname = $_REQUEST['lname'];
+$email = $_REQUEST['email'];
+$dob = $_REQUEST['dob'];
+$username = $_REQUEST['username'];
+$password = $_REQUEST['password'];
 
-$sql = " ;";
+$sql = " INSERT INTO user (fname, lname, email, dob, nickname, password) VALUES ('$fname', '$lname', '$email','$dob', '$username', '$password');";
 if($conn-> query($sql) === TRUE){
-	echo "The movie has been added.";
+	echo "Account created successfully.";
 } else{
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
