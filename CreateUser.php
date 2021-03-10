@@ -51,7 +51,7 @@ $conn->close();
 		<a class="dash" href="About.html">About</a>
 		<a class="dash" href="Login.html">Login</a>
 	</div>
-	<form method="post" action="CreateUser.php">
+	<form method="post" action="CreateUser.php" enctype="multipart/form-data">
 		<label>Username</label><br>
 		<input type="text" id="username" name="username"><br>
 		<label>Profile picture</label><br>
