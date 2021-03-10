@@ -8,9 +8,9 @@ $dob = $_REQUEST['dob'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 $bio = $_REQUEST['bio'];
-$pfp = $email . $_FILES['pfp']['email'];
+$pfp = $email . $_FILES[$_REQUEST['pfp']]['email'];
 
-move_uploaded_file($_FILES['pfp']['email'], 'images' . $email . $_FILES['pfp']['email']);
+move_uploaded_file($_FILES[$_REQUEST['pfp']]['email'], 'images' . $email . $_FILES[$_REQUEST['pfp']]['email']);
 
 $sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$pfp');";
 
