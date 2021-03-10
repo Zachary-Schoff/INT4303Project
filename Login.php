@@ -6,7 +6,9 @@ $password = $_REQUEST["password"];
 
 $sql = " SELECT * FROM user WHERE email = '$email' AND password = '$password';";
 
-if(is_null($conn->query($sql)->num_rows)){
+$result = $conn->query($sql);
+
+if($result->num_rows == 0){
 	echo "Login failed";
 } else {
 	echo "Login successful";
