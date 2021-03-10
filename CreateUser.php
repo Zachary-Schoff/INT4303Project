@@ -18,6 +18,7 @@ if($conn-> query($sql) === TRUE){
 
 $conn->close();
 ?>
+
 <!doctype html>
 <html>
 <head>
@@ -29,28 +30,31 @@ $conn->close();
 <body>
 	<h1>LTU Resource</h1>
 	<div class="topnav">
-		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Dashboard.html">Dashboard</a>
-		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\News.html">News</a>
-		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Search.html">Search</a>
-		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Profile.html">Profile</a>
-		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\About.html">About</a>
-		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Login.html">Login</a>
+		<a class="dash" href="Dashboard.html">Dashboard</a>
+		<a class="dash" href="News.html">News</a>
+		<a class="dash" href="Search.html">Search</a>
+		<a class="dash" href="Profile.html">Profile</a>
+		<a class="dash" href="About.html">About</a>
+		<a class="dash" href="Login.html">Login</a>
 	</div>
 	<form method="post" action="CreateUser.php">
-		<label for="fname">First Name</label><br>
-		<input type="text" id="fname" name="fname"><br>
-		<label for="lname">Last Name</label><br>
-		<input type="text" id="lname" name="lname"><br>
-		<label for="email">Email</label><br>
-		<input type="text" id="email" name="email"><br>
-		<label for="dob">Date of Birth</label><br>
-		<input type="date" id="dob" name="dob"><br>
-		<label for="username">Username</label><br>
+		<label>Username</label><br>
 		<input type="text" id="username" name="username"><br>
-		<label for="password">Password</label><br>
-		<input type="text" id="password" name="password">
+		<label>Profile picture</label><br>
+		<input type="file" id="pfp" name="pfp"><br>
+		<label>Password</label><br>
+		<input type="text" id="password" name="password"><br>
+		<label>First Name</label><br>
+		<input type="text" id="fname" name="fname"><br>
+		<label>Last Name</label><br>
+		<input type="text" id="lname" name="lname"><br>
+		<label>Bio</label><br>
+		<textarea id="bio" name="bio" rows="4" cols="32"></textarea><br>
+		<label>Email</label><br>
+		<input type="text" id="email" name="email"><br>
+		<label>Date of Birth</label><br>
+		<input type="date" id="dob" name="dob"><br>
 		<input type="submit" value="Submit">
 	</form>
-	<p>Account created successfully!</p>
 </body>
 </html>
