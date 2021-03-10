@@ -8,11 +8,11 @@ $dob = $_REQUEST['dob'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 $bio = $_REQUEST['bio'];
-$pfp = $_FILES['pfp']['email'];
+$pfp = $email . $_FILES['pfp']['email'];
+
+move_uploaded_file($_FILES['pfp']['email'], 'images' . $email . $_FILES['pfp']['email']);
 
 $sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$pfp');";
-
-move_uploaded_file($_FILES['pfp']['email'], 'images');
 
 if($conn-> query($sql) === TRUE){
 	
