@@ -10,7 +10,7 @@ $password = $_REQUEST['password'];
 $bio = $_REQUEST['bio'];
 
 $imagedir = "images/";
-$imagefile = $imagedir . basename($_FILES["pfp"][$email]);
+$imagefile = $imagedir . basename($_FILES["pfp"]["name"]);
 $imageFileType = strtolower(pathinfo($imagefile, PATHINFO_EXTENSION));
 
 if(isset($_POST["submit"])){
