@@ -1,8 +1,16 @@
 <?php
 include 'Connection.php';
 
+$fname = $_REQUEST['fname'];
+$lname = $_REQUEST['lname'];
+$email = $_REQUEST['email'];
+$dob = $_REQUEST['dob'];
+$username = $_REQUEST['username'];
+$password = $_REQUEST['password'];
+$bio = $_REQUEST['bio'];
+
 $imagedir = "images/";
-$imagefile = $imagedir . basename($_FILES["pfp"]["email"]);
+$imagefile = $imagedir . basename($_FILES["pfp"][$email]);
 $imageFileType = strtolower(pathinfo($imagefile, PATHINFO_EXTENSION));
 
 if(isset($_POST["submit"])){
@@ -13,14 +21,6 @@ if(isset($_POST["submit"])){
 		echo "File selected is not an image: " . $check["mime"] . ".";
 	}
 }
-
-$fname = $_REQUEST['fname'];
-$lname = $_REQUEST['lname'];
-$email = $_REQUEST['email'];
-$dob = $_REQUEST['dob'];
-$username = $_REQUEST['username'];
-$password = $_REQUEST['password'];
-$bio = $_REQUEST['bio'];
 
 $sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$email . $imageFileType');";
 
