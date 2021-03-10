@@ -22,7 +22,7 @@ if(isset($_POST["submit"])){
 	}
 }
 
-$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$email . $imageFileType');";
+$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$email.$imageFileType');";
 
 if($conn-> query($sql) === TRUE){
 	
