@@ -10,15 +10,15 @@ $password = $_REQUEST['password'];
 $bio = $_REQUEST['bio'];
 
 $imagedir = "images/";
-$imagefile = $imagedir . basename($_FILES["pfp"]["name"]);
+$imagefile = $imagedir.basename($_FILES["pfp"]["name"]);
 $imageFileType = strtolower(pathinfo($imagefile, PATHINFO_EXTENSION));
 
 if(isset($_POST["submit"])){
 	$check = getimagesize($_FILES["pfp"]["tmp_name"]);
 	if($check !== false) {
-		
+		echo "Success!";
 	} else {
-		echo "File selected is not an image: " . $check["mime"] . ".";
+		echo "File selected is not an image: ".$check["mime"].".";
 	}
 }
 
@@ -68,7 +68,7 @@ $conn->close();
 		<input type="text" id="email" name="email"><br>
 		<label>Date of Birth</label><br>
 		<input type="date" id="dob" name="dob"><br>
-		<input type="submit" value="Submit">
+		<input type="submit" name="submit" value="Submit">
 	</form>
 </body>
 </html>

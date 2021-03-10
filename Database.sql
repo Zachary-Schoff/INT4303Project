@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 03, 2021 at 10:27 PM
+-- Generation Time: Mar 10, 2021 at 11:37 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `enhancedfunctionalitypages`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+DROP PROCEDURE IF EXISTS `creategroup`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `creategroup` (IN `name` VARCHAR(32), IN `description` VARCHAR(128), IN `picture` VARCHAR(32))  MODIFIES SQL DATA
+INSERT INTO usergroup (gname, gdescription, gpicture) VALUES (name, description, picture)$$
+
+DROP PROCEDURE IF EXISTS `createuser`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createuser` (IN `first` VARCHAR(32), IN `last` VARCHAR(32), IN `emailaddress` VARCHAR(64), IN `birth` DATE, IN `username` VARCHAR(32), IN `pass` VARCHAR(32), IN `bio` VARCHAR(128), IN `pfp` VARCHAR(32))  MODIFIES SQL DATA
+INSERT INTO user (fname, lname, email, nickname, password, bio, profilepicture) VALUES (first, last, emailaddress, username, pass, bio, pfp)$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -82,7 +96,25 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lname` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userid`, `nickname`, `password`, `email`, `profilepicture`, `bio`, `fname`, `lname`, `dob`) VALUES
+(1, 'TEST', '134567', 'test@t.com', NULL, NULL, NULL, NULL, NULL),
+(2, 'testnick', '1234', 'test@gmail.com', NULL, NULL, 'testfirstname', 'testlastname', '2019-01-01'),
+(3, 'Schoff', '999999999', 'zschoff@me.com', NULL, NULL, 'Zach', 'Schoff', '1999-02-12'),
+(4, 'Smitherson', 'Tdas', '$js@icloud.com', NULL, NULL, 'Joe', 'Smith', NULL),
+(5, 'IllNeverGetThoseHoursBack', 'IFeelRealSmart', 'FilesInThe@RootFolderOf.WAMP', NULL, NULL, 'IHadForgot', 'ToPutThese', NULL),
+(9, 'Bill Nye', 'THEscienceGUY2002', 'bnye@harvard.edu', NULL, NULL, 'William', 'Nye', NULL),
+(11, 'Lol', 'Icantbelieve', 'lol@please.net', 'lol@please.net.png', 'becauseireallyforgottochangetheprocedure', 'thismight', 'actuallywork', NULL),
+(12, 'ABC', '123', 'A@b.com', 'A@b.com.png', 'AIFWIhg', 'A', 'B', NULL),
+(13, 'asdfg', 'esadh', 't@a.com', 't@a.com.png', 'asffdd', 'te', 'st', NULL),
+(14, 'asdfg', 'esadh', 't@a.com', 't@a.com.png', 'asffdd', 'te', 'st', NULL),
+(15, 'asdfg', 'esadh', 't@a.com', 't@a.com.png', 'asffdd', 'te', 'st', NULL),
+(16, 'asfdg', 'sadfg', 't@a.com', 't@a.com.png', 'ASDNF', 'lpkn', 'pokl', NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +129,15 @@ CREATE TABLE IF NOT EXISTS `usergroup` (
   `gpicture` varchar(32) DEFAULT NULL,
   `gdescription` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`groupid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `usergroup`
+--
+
+INSERT INTO `usergroup` (`groupid`, `gname`, `gpicture`, `gdescription`) VALUES
+(1, 'Test Group', 'Test Group.png', 'I AM TESTING THIS AT 4 AM, PROCRASTINATION IS BAD'),
+(2, 'LTU Soccer', 'LTU Soccer.png', 'ABASFDG');
 
 -- --------------------------------------------------------
 
