@@ -1,6 +1,19 @@
 <?php
 include 'Connection.php';
 
+$imagedir = "images/";
+$imagefile = $imagedir . basename($_FILES["pfp"]["email"]);
+$imageFileType = strtolower(pathinfo($imagefile, PATHINFO_EXTENSION));
+
+if(isset($_POST["submit"])){
+	$check = getimagesize($_FILES["pfp"]["tmp_name"]);
+	if($check !== false) {
+		
+	} else {
+		echo "File selected is not an image: " . $check["mime"] . ".";
+	}
+}
+
 $fname = $_REQUEST['fname'];
 $lname = $_REQUEST['lname'];
 $email = $_REQUEST['email'];
@@ -8,11 +21,8 @@ $dob = $_REQUEST['dob'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 $bio = $_REQUEST['bio'];
-$pfp = $email . $_FILES[$_REQUEST['pfp']]['email'];
 
-move_uploaded_file($_FILES[$_REQUEST['pfp']]['email'], 'images' . $email . $_FILES[$_REQUEST['pfp']]['email']);
-
-$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$pfp');";
+$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$email . $imageFileType');";
 
 if($conn-> query($sql) === TRUE){
 	
