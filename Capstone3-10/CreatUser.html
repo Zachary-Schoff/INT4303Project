@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<link href = "Style.css" rel = "stylesheet">
+	<link href = "CreateUser.php" rel = "connection">
+</head>
+
+<body>
+	<h1 class = "header"> LTU Resource</h1>
+	<div class="topnav">
+		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Dashboard.html">Dashboard</a>
+		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\News.html">News</a>
+		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Search.html">Search</a>
+		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Profile.html">Profile</a>
+		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\About.html">About</a>
+		<a class="dash" href="C:\Users\nkubik\Desktop\Capstone\Login.html">Login</a>
+	</div>
+	<form method = "POST">
+		<label for="fname">First Name</label><br>
+		<input type="text" id="fname" name="fname"><br>
+		<label for="lname">Last Name</label><br>
+		<input type="text" id="lname" name="lname"><br>
+		<label for="email">Email</label><br>
+		<input type="text" id="email" name="email"><br>
+		<label for="dob">Date of Birth</label><br>
+		<input type="date" id="dob" name="dob"><br>
+		<label for="nickname">Nickname</label><br>
+		<input type="text" id="nickname" name="nickname"><br>
+		<label for="password">Password</label><br>
+		<input type="text" id="password" name="password"><br>
+		<label for="bio" maxlength = "140">Bio</label><br>
+		<input type="text" id="bio" name="bio" contenteditable="true">
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
