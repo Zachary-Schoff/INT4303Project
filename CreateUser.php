@@ -5,7 +5,7 @@ $target_dir = "image/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-$imagename = $_FILES["fileToUpload"]["tmp_name"];
+$imagename = $_FILES["fileToUpload"]["name"];
 
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -53,7 +53,7 @@ $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 $bio = $_REQUEST['bio'];
 
-$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$imagename.$imageFileType');";
+$sql = " CALL createuser('$fname', '$lname', '$email', '$dob', '$username', '$password', '$bio', '$imagename');";
 
 if($conn-> query($sql) === TRUE){
 	
