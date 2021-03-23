@@ -6,12 +6,19 @@ $password = $_REQUEST["password"];
 
 $sql = " SELECT * FROM user WHERE email = '$email' AND password = '$password';";
 
+$uidsql = " SELECT userid FROM user WHERE email = '$email' AND password = '$password';";
+
+$uid = $conn->query($uidsql);
+
 $result = $conn->query($sql);
 
 if($result->num_rows == 0){
 	echo "Login failed";
 } else {
-	echo "Login successful";
+	echo "Logged in";
+	
+	session_start();
+	$_SESSION["userid"] = $uid;
 }
 ?>
 
