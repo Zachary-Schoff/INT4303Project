@@ -11,7 +11,7 @@ if ($result = $conn->query($sql)){
 		print_r($row);
 		$uid = $row[0];
 		$nickname = $row[1];
-		$picture = "images/".$row[4];
+		$picture = "image/".$row[4];
 		$bio = $row[5];
 		$fname = $row[6];
 		$lname = $row[7];
@@ -22,7 +22,9 @@ if ($result = $conn->query($sql)){
 			<img src = ".$picture."/></br>
 			<p>Nickname: ".$nickname."</p></br>
 			<p>First Name: ".$fname."</p></br>
-			<p>Last Name: ".$lname."</p></br>"
+			<p>Last Name: ".$lname."</p></br>
+			<p>Bio: ".$bio."</p></br>
+			<p>Birthday: ".$dob."</p></br>"
 		);
 	}
 }
