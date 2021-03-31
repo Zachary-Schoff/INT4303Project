@@ -17,6 +17,8 @@ if ($result = $conn->query($sql)){
 		$lname = $row[7];
 		$dob = $row[8];
 		
+		
+		
 		echo(
 			"<html>
 				<head>
@@ -26,7 +28,7 @@ if ($result = $conn->query($sql)){
 				</head>
 				<body>
 					<h1>My Profile</h1></br>
-					<img src = '".$picture."'/></br>
+					<img src = '".$picture."' height='200' width='200'/></br>
 					<p>Nickname: ".$nickname."</p></br>
 					<p>First Name: ".$fname."</p></br>
 					<p>Last Name: ".$lname."</p></br>
