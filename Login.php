@@ -18,13 +18,22 @@ if ($result = $conn->query($sql)){
 		$dob = $row[8];
 		
 		echo(
-			"<h1>My Profile</h1></br>
-			<img src = '".$picture."'/></br>
-			<p>Nickname: ".$nickname."</p></br>
-			<p>First Name: ".$fname."</p></br>
-			<p>Last Name: ".$lname."</p></br>
-			<p>Bio: ".$bio."</p></br>
-			<p>Birthday: ".$dob."</p></br>"
+			"<html>
+				<head>
+					<meta charset='utf-8'>
+					<title>Untitled Document</title>
+					<link href = 'Style.css' rel = 'stylesheet'>
+				</head>
+				<body>
+					<h1>My Profile</h1></br>
+					<img src = '".$picture."'/></br>
+					<p>Nickname: ".$nickname."</p></br>
+					<p>First Name: ".$fname."</p></br>
+					<p>Last Name: ".$lname."</p></br>
+					<p>Bio: ".$bio."</p></br>
+					<p>Birthday: ".$dob."</p></br>
+				</body>
+			</html>"
 		);
 	}
 }
