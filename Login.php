@@ -8,7 +8,7 @@ $sql = " SELECT * FROM user WHERE email = '$email' AND password = '$password' LI
 
 if ($result = $conn->query($sql)){
 	while($row = $result->fetch_row()){
-		print_r($row);
+		// print_r($row);
 		$uid = $row[0];
 		$nickname = $row[1];
 		$picture = "image/".$row[4];
