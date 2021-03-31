@@ -19,7 +19,7 @@ if ($result = $conn->query($sql)){
 		
 		echo(
 			"<h1>My Profile</h1></br>
-			<img src = ".$picture."/></br>
+			<img src = '".$picture."'/></br>
 			<p>Nickname: ".$nickname."</p></br>
 			<p>First Name: ".$fname."</p></br>
 			<p>Last Name: ".$lname."</p></br>
