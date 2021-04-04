@@ -17,7 +17,8 @@ if ($result = $conn->query($sql)){
 		$lname = $row[7];
 		$dob = $row[8];
 		
-		
+		session_start();
+		$_SESSION["user"] = $uid;
 		
 		echo(
 			"<html>
