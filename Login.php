@@ -28,18 +28,18 @@ if ($result = $conn->query($sql)){
 		$followsql = "SELECT user.userid, following.followid, following.followerid FROM user JOIN following ON user.userid=following.followerid;";
 		
 		if ($fresult = $conn->query($followsql)){
-			while($row = $fresult->fetch_row()){
-				$pullfollow = "SELECT * FROM user WHERE userid = $row[0];";
+			while($frow = $fresult->fetch_row()){
+				$pullfollow = "SELECT * FROM user WHERE userid = $frow[0];";
 				if ($lresult = $conn->query($pullfollow)){
-					while($row = $lresult->fetch_row()){
+					while($lrow = $lresult->fetch_row()){
 						
-						$fuid = $row[0];
-						$fnickname = $row[1];
-						$fpicture = "image/".$row[4];
-						$fbio = $row[5];
-						$ffname = $row[6];
-						$flname = $row[7];
-						$fdob = $row[8];
+						$fuid = $lrow[0];
+						$fnickname = $lrow[1];
+						$fpicture = "image/".$lrow[4];
+						$fbio = $lrow[5];
+						$ffname = $lrow[6];
+						$flname = $lrow[7];
+						$fdob = $lrow[8];
 						
 						echo (
 							"<html>
