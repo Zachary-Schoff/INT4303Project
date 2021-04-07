@@ -22,7 +22,7 @@ if($conn-> query($sql) === TRUE){
 					<link href = 'Style.css' rel = 'stylesheet'>
 				</head>
 				<body>
-					<h1>My Profile</h1><form method='post' action='Follow.php'><input type='submit' value='Follow'></form></br>
+					<h1>My Profile</h1><form><input type='submit' value='Followed'></form></br>
 					<img src = '".$picture."' height='200' width='200'/></br>
 					<p>Nickname: ".$nickname."</p></br>
 					<p>First Name: ".$fname."</p></br>
