@@ -8,7 +8,6 @@ $sql = " SELECT * FROM user WHERE email = '$email' AND password = '$password' LI
 
 if ($result = $conn->query($sql)){
 	while($row = $result->fetch_row()){
-		// print_r($row);
 		$uid = $row[0];
 		$nickname = $row[1];
 		$picture = "image/".$row[4];
@@ -29,10 +28,10 @@ if ($result = $conn->query($sql)){
 		$followsql = "SELECT user.userid, following.followid, following.followerid FROM user JOIN following ON user.userid=following.followerid;";
 		
 		if ($fresult = $conn->query($followsql)){
-			while($row = $result->fetch_row()){
+			while($row = $fresult->fetch_row()){
 				$pullfollow = "SELECT * FROM user WHERE userid = $row[0];";
-				if ($fresult = $conn->query($pullfollow)){
-					while($row = $result->fetch_row()){
+				if ($lresult = $conn->query($pullfollow)){
+					while($row = $lresult->fetch_row()){
 						
 						$fuid = $row[0];
 						$fnickname = $row[1];
@@ -69,6 +68,9 @@ if ($result = $conn->query($sql)){
 						);
 					}
 				}
+				else{
+					echo("Something went wrong while attempting to pull follower info.");
+				}
 			}
 		}
 		else{
@@ -80,7 +82,7 @@ if ($result = $conn->query($sql)){
 						<link href = 'Style.css' rel = 'stylesheet'>
 					</head>
 					<body>
-						<h1>My Profile</h1><form><input type='submit' value='Followed'></form></br>
+						<h1>My Profile</h1><form method='post' action='Follow.php'><input type='submit' value='Follow'></form></br>
 						<img src = '".$picture."' height='200' width='200'/></br>
 						<p>Nickname: ".$nickname."</p></br>
 						<p>First Name: ".$fname."</p></br>
