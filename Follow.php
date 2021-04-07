@@ -5,7 +5,7 @@ session_start();
 
 $uid = $_SESSION["user"];
 
-$sql = "INSERT INTO following VALUES 9, $uid;";
+$sql = "INSERT INTO following VALUES (9, $uid);";
 
 if($conn-> query($sql) === TRUE){
 	echo (
