@@ -27,13 +27,13 @@ if ($result = $conn->query($sql)){
 		$_SESSION["lname"] = $lname;
 		$_SESSION["dob"] = $dob;
 		
-		$followsql = "SELECT user.userid, following.followid, following.followerid FROM user JOIN following ON user.userid=following.followerid;";
+		$followsql = "SELECT user.userid, following.followid, following.followerid FROM user JOIN following ON user.userid=following.followerid WHERE user.userid = $uid;";
 		
 		if ($fresult = $conn->query($followsql)){
 			while($frow = $fresult->fetch_row()){
 				print_r($frow);
 				echo("</br>");
-				$pullfollow = "SELECT * FROM user WHERE userid = $frow[0];";
+				$pullfollow = "SELECT * FROM user WHERE userid = $frow[1];";
 				if ($lresult = $conn->query($pullfollow)){
 					while($lrow = $lresult->fetch_row()){
 						print_r($lrow);
