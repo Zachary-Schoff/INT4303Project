@@ -29,7 +29,9 @@ if ($result = $conn->query($sql)){
 		
 		$followsql = "SELECT user.userid, following.followid, following.followerid FROM user JOIN following ON user.userid=following.followerid WHERE user.userid = $uid;";
 		
-		if ($fresult = $conn->query($followsql)){
+		$fresult = $conn->query($followsql);
+		
+		if ($fresult->num_rows > 0){
 			while($frow = $fresult->fetch_row()){
 				// print_r($frow);
 				// echo("</br>");
