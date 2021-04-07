@@ -3,7 +3,13 @@ include 'Connection.php';
 
 session_start();
 
-$uid = $_SESSION["user"];
+$uid = $_SESSION["user"];;
+$nickname = $_SESSION["nick"];
+$picture = $_SESSION["pic"];
+$bio = $_SESSION["bio"];
+$fname = $_SESSION["fname"];
+$lname = $_SESSION["lname"];
+$dob = $_SESSION["dob"];
 
 $sql = "INSERT INTO following VALUES (9, $uid);";
 

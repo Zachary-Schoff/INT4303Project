@@ -19,6 +19,12 @@ if ($result = $conn->query($sql)){
 		
 		session_start();
 		$_SESSION["user"] = $uid;
+		$_SESSION["nick"] = $nickname;
+		$_SESSION["pic"] = $picture;
+		$_SESSION["bio"] = $bio;
+		$_SESSION["fname"] = $fname;
+		$_SESSION["lname"] = $lname;
+		$_SESSION["dob"] = $dob;
 		
 		echo(
 			"<html>
