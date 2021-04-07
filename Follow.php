@@ -1,6 +1,8 @@
 <?php
 include 'Connection.php';
 
+session_start();
+
 $uid = $_SESSION["user"];
 
 $sql = "INSERT INTO following VALUES '9', '$uid';";
