@@ -8,6 +8,8 @@ $sql = " SELECT * FROM user WHERE email = '$email' AND password = '$password' LI
 
 if ($result = $conn->query($sql)){
 	while($row = $result->fetch_row()){
+		print_r($row);
+		echo("</br>");
 		$uid = $row[0];
 		$nickname = $row[1];
 		$picture = "image/".$row[4];
@@ -29,10 +31,13 @@ if ($result = $conn->query($sql)){
 		
 		if ($fresult = $conn->query($followsql)){
 			while($frow = $fresult->fetch_row()){
+				print_r($frow);
+				echo("</br>");
 				$pullfollow = "SELECT * FROM user WHERE userid = $frow[0];";
 				if ($lresult = $conn->query($pullfollow)){
 					while($lrow = $lresult->fetch_row()){
-						
+						print_r($lrow);
+						echo("</br>");
 						$fuid = $lrow[0];
 						$fnickname = $lrow[1];
 						$fpicture = "image/".$lrow[4];
