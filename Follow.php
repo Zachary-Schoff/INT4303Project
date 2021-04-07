@@ -1,26 +1,12 @@
 <?php
 include 'Connection.php';
 
-$email = $_REQUEST["Email"];
-$password = $_REQUEST["password"];
+$uid = $_SESSION["user"];
 
-$sql = " SELECT * FROM user WHERE email = '$email' AND password = '$password' LIMIT 1;";
+$sql = "INSERT INTO following VALUES '9', '$uid';";
 
-if ($result = $conn->query($sql)){
-	while($row = $result->fetch_row()){
-		// print_r($row);
-		$uid = $row[0];
-		$nickname = $row[1];
-		$picture = "image/".$row[4];
-		$bio = $row[5];
-		$fname = $row[6];
-		$lname = $row[7];
-		$dob = $row[8];
-		
-		session_start();
-		$_SESSION["user"] = $uid;
-		
-		echo(
+if($conn-> query($sql) === TRUE){
+	echo (
 			"<html>
 				<head>
 					<meta charset='utf-8'>
@@ -37,10 +23,9 @@ if ($result = $conn->query($sql)){
 					<p>Birthday: ".$dob."</p></br>
 				</body>
 			</html>"
-		);
-	}
+	);
+} else{
+	echo "Error: " . $sql . "<br>" . $conn->error;
 }
-else{
-	echo "That account does not exist. Please make sure your email and password are correct.";
-}
+
 ?>
