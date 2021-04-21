@@ -9,12 +9,17 @@
 <body>
 	<h1>LTU Resource</h1>
 	<div class="topnav">
-		<a class="dash" href="Dashboard.html">Dashboard</a>
+		<a class="dash" href="Dashboard.php">Dashboard</a>
 		<a class="dash" href="News.html">News</a>
-		<a class="dash" href="Search.html">Search</a>
 		<a class="dash" href="Profile.html">Profile</a>
 		<a class="dash" href="About.html">About</a>
 		<a class="dash" href="Login.html">Login</a>
+		<a>
+			<form class="dash" action = "Search.php">
+				<input class="form-control me-2"  id = "input" name = "input" type="text" placeholder="Search" aria-label="Search" style = "width: 100%; text-align: right">
+				<input class="btn btn-outline-success" type="submit">
+			</form>
+		</a>
 	</div>
 	<form method="post" action="Login.php">
 		<label for="username">Email</label><br>

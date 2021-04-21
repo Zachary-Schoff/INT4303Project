@@ -56,20 +56,50 @@ if ($result = $conn->query($sql)){
 									<link href = 'Style.css' rel = 'stylesheet'>
 								</head>
 								<body>
+									<h1 class = 'header'> LTU Resource</h1>
+									<div class='topnav'>
+										<a class='dash' href='Dashboard.php'>Dashboard</a>
+										<a class='das' href='News.html'>News</a>
+										<a class='dash' href='Profile.html'>Profile</a>
+										<a class='dash' href='About.html'>About</a>
+										<a class='dash' href='Login.html'>Login</a>
+										<a>
+											<form class='dash' action = 'Search.php'>
+												<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 100%; text-align: right'>
+												<input class='btn btn-outline-success' type='submit'>
+											</form>
+										</a>
+									</div>
 									<h1>My Profile</h1><form><input type='submit' value='Followed'></form></br>
-									<img src = '".$picture."' height='200' width='200'/></br>
-									<p>Nickname: ".$nickname."</p></br>
-									<p>First Name: ".$fname."</p></br>
-									<p>Last Name: ".$lname."</p></br>
-									<p>Bio: ".$bio."</p></br>
-									<p>Birthday: ".$dob."</p></br>
-									<h1>Following</h1></br>
-									<img src = '".$fpicture."' height='200' width='200'/></br>
-									<p>Nickname: ".$fnickname."</p></br>
-									<p>First Name: ".$ffname."</p></br>
-									<p>Last Name: ".$flname."</p></br>
-									<p>Bio: ".$fbio."</p></br>
-									<p>Birthday: ".$fdob."</p></br>
+									<table>
+										<tr><td>
+											<img src = '".$picture."' height='200' width='200'/></br>
+										</td><td>
+											<p>Nickname: ".$nickname."</p></br>
+										</td></tr>
+										<tr><td>
+											<p>First Name: ".$fname."</p></br>
+										</td><td>
+											<p>Last Name: ".$lname."</p></br>
+										</td></tr>
+										<tr><td>
+											<p>Bio: ".$bio."</p></br>
+										</td></tr>
+										<tr><td>
+											<p>Birthday: ".$dob."</p></br>
+										</td></tr>
+										<tr><td>
+											<h1>Following</h1></br>
+										</td></tr>
+										<tr><td>
+											<p>Nickname: ".$fnickname."</p></br>
+										</td></tr>
+										<tr><td>
+											<p>First Name: ".$ffname."</p></br>
+										</td><td>
+											<p>Last Name: ".$flname."</p></br>
+										</td></tr>
+									</table>
 								</body>
 							</html>"
 						);
@@ -89,13 +119,40 @@ if ($result = $conn->query($sql)){
 						<link href = 'Style.css' rel = 'stylesheet'>
 					</head>
 					<body>
+						<h1 class = 'header'> LTU Resource</h1>
+							<div class='topnav'>
+								<a class='dash' href='Dashboard.php'>Dashboard</a>
+								<a class='das' href='News.html'>News</a>
+								<a class='dash' href='Profile.html'>Profile</a>
+								<a class='dash' href='About.html'>About</a>
+								<a class='dash' href='Login.html'>Login</a>
+								<a>
+									<form class='dash' action = 'Search.php'>
+										<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 100%; text-align: right'>
+										<input class='btn btn-outline-success' type='submit'>
+									</form>
+								</a>
+							</div>
 						<h1>My Profile</h1><form method='post' action='Follow.php'><input type='submit' value='Follow'></form></br>
-						<img src = '".$picture."' height='200' width='200'/></br>
-						<p>Nickname: ".$nickname."</p></br>
-						<p>First Name: ".$fname."</p></br>
-						<p>Last Name: ".$lname."</p></br>
-						<p>Bio: ".$bio."</p></br>
-						<p>Birthday: ".$dob."</p></br>
+						<table>
+							<tr><td>
+								<img src = '".$picture."' height='200' width='200'/></br>
+							</td></tr>
+							<tr><td>
+								<p>Nickname: ".$nickname."</p></br>
+							</td></tr>
+							<tr><td>
+								<p>First Name: ".$fname."</p></br>
+							</td><td>
+								<p>Last Name: ".$lname."</p></br>
+							</td></tr>
+							<tr><td>
+								<p>Bio: ".$bio."</p></br>
+							</td></tr>
+							<tr><td>
+								<p>Birthday: ".$dob."</p></br>
+							</td></tr>
+						</table>
 					</body>
 				</html>"
 			);
