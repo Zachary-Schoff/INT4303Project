@@ -42,7 +42,7 @@ else{
 			<a class='dash' href='Search.php'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
-			<a class='dash' href='Login.html'>Login</a>
+			<a class='dash' href='Login.php'>Login</a>
 		</div>
 		<h3>This website was created in order to help the Lawrence Tech Community have as many resources as needed to succeed</h3>
 

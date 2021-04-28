@@ -51,7 +51,7 @@ else{
 			<a class='das' href='News.php'>News</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
-			<a class='dash' href='Login.html'>Login</a>
+			<a class='dash' href='Login.php'>Login</a>
 			<a>
 				<form class='dash' action = 'SearchAction.php'>
 					<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 100%; text-align: right; color: black;'>

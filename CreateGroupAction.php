@@ -73,7 +73,7 @@ else{
 			<a class='dash' href='Search.php'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
-			<a class='dash' href='Login.html'>Login</a>
+			<a class='dash' href='Login.php'>Login</a>
 		</div>
 		<form method='post' action='CreateGroupAction.php' enctype='multipart/form-data'>
 			<label>Group Name</label><br>
