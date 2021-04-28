@@ -1,6 +1,32 @@
 <?php
 include 'Connection.php';
 
+$gname = $_REQUEST['groupname'];
+$description = $_REQUEST['groupdesc'];
+
+$imagedir = "images/";
+$imagefile = $imagedir . basename($_FILES["grouppic"]["name"]);
+$imageFileType = strtolower(pathinfo($imagefile, PATHINFO_EXTENSION));
+
+if(isset($_POST["submit"])){
+	$check = getimagesize($_FILES["grouppic"]["tmp_name"]);
+	if($check !== false) {
+		
+	} else {
+		echo "File selected is not an image: " . $check["mime"] . ".";
+	}
+}
+
+$sql = " CALL creategroup('$gname', '$description', '$gname.$imageFileType');";
+
+if($conn-> query($sql) === TRUE){
+	
+} else{
+	echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+include 'Connection.php';
+
 if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 	echo "<!doctype html>
 	<html>
@@ -63,4 +89,5 @@ else{
 	</body>
 	</html>";
 	}
+$conn->close();
 ?>
