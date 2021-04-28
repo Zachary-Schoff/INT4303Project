@@ -38,10 +38,10 @@ else{
 		<h1>LTU Resource</h1>
 		<div class='topnav'>
 			<a class='dash' href='Dashboard.html'>Dashboard</a>
-			<a class='dash' href='News.html'>News</a>
+			<a class='dash' href='News.php'>News</a>
 			<a class='dash' href='Search.html'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
-			<a class='dash' href='About.html'>About</a>
+			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.html'>Login</a>
 		</div>
 		<h3>This website was created in order to help the Lawrence Tech Community have as many resources as needed to succeed</h3>

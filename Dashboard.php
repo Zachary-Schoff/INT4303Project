@@ -24,7 +24,7 @@ echo "<!doctype html>
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.html'>Login</a>
 			<a>
-				<form class='dash' action = 'Search.php'>
+				<form class='dash' action = 'SearchAction.php'>
 					<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 100%; text-align: right'>
 					<input class='btn btn-outline-success' type='submit'>
 				</form>
