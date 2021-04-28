@@ -194,7 +194,7 @@ else{
 			<input type='submit' value='Login'>
 		</form>
 
-		<a href='CreateUser.html'>Create Account</a>
+		<a href='CreateUser.php'>Create Account</a>
 	</body>
 	</html>";
 }
