@@ -24,7 +24,7 @@ h3{
 	background-color: rgba(0, 0, 0, 0.5);
 	overflow: hidden;
 	display: inline-block;
-	width: auto;
+	width: 100%;
 	-webkit-text-stroke: .5px white;
 	font-weight: 500;
 }
