@@ -61,8 +61,6 @@ if($conn-> query($sql) === TRUE){
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-include 'Connection.php';
-
 if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 	echo "<!doctype html>
 	<html>

@@ -31,7 +31,7 @@ echo "<!doctype html>
 			</a>
 		</div>
 		<h3 class='title'>Dashboard</h3>
-		<a href='NewPost.html' style = 'color: red'>Add Post</a>
+		<a href='NewPost.php' style = 'color: red'>Add Post</a>
 	</body>
 	</html>";
 
