@@ -79,7 +79,7 @@ $conn->close();
 		<a class="dash" href="News.html">News</a>
 		<a class="dash" href="Search.html">Search</a>
 		<a class="dash" href="Profile.html">Profile</a>
-		<a class="dash" href="About.html">About</a>
+		<a class="dash" href="About.php">About</a>
 		<a class="dash" href="Login.html">Login</a>
 	</div>
 	<form method="post" action="CreateUser.php" enctype="multipart/form-data">

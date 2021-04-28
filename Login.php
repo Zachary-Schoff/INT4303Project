@@ -61,7 +61,7 @@ if ($result = $conn->query($sql)){
 										<a class='dash' href='Dashboard.php'>Dashboard</a>
 										<a class='das' href='News.html'>News</a>
 										<a class='dash' href='Profile.html'>Profile</a>
-										<a class='dash' href='About.html'>About</a>
+										<a class='dash' href='About.php'>About</a>
 										<a class='dash' href='Login.html'>Login</a>
 										<a>
 											<form class='dash' action = 'Search.php'>
@@ -124,7 +124,7 @@ if ($result = $conn->query($sql)){
 								<a class='dash' href='Dashboard.php'>Dashboard</a>
 								<a class='das' href='News.html'>News</a>
 								<a class='dash' href='Profile.html'>Profile</a>
-								<a class='dash' href='About.html'>About</a>
+								<a class='dash' href='About.php'>About</a>
 								<a class='dash' href='Login.html'>Login</a>
 								<a>
 									<form class='dash' action = 'Search.php'>
