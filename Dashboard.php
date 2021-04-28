@@ -19,7 +19,7 @@ echo "<!doctype html>
 		<h1 class = 'header'> LTU Resource</h1>
 		<div class='topnav'>
 			<a class='dash' href='Dashboard.php'>Dashboard</a>
-			<a class='das' href='News.html'>News</a>
+			<a class='das' href='News.php'>News</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.html'>Login</a>

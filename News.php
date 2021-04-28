@@ -18,13 +18,12 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 			<a class='dash' href='Search.html'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
-			<a class='dash' href='Logout.php'>Logout</a>
+			<a class='dash' href='Login.html'>Login</a>
 		</div>
-		<h3>This website was created in order to help the Lawrence Tech Community have as many resources as needed to succeed</h3>
-
+		<h3>This page will be for recent news or important information regarding the school</h3>
 	</body>
 	</html>";
-}
+	}
 else{
 	echo "<!doctype html>
 	<html>
@@ -41,12 +40,11 @@ else{
 			<a class='dash' href='News.html'>News</a>
 			<a class='dash' href='Search.html'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
-			<a class='dash' href='About.html'>About</a>
+			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.html'>Login</a>
 		</div>
-		<h3>This website was created in order to help the Lawrence Tech Community have as many resources as needed to succeed</h3>
-
+		<h3>This page will be for recent news or important information regarding the school</h3>
 	</body>
 	</html>";
-}
+	}
 ?>
