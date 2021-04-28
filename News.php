@@ -15,7 +15,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 		<div class='topnav'>
 			<a class='dash' href='Dashboard.html'>Dashboard</a>
 			<a class='dash' href='News.php'>News</a>
-			<a class='dash' href='Search.html'>Search</a>
+			<a class='dash' href='Search.php'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.html'>Login</a>
@@ -38,7 +38,7 @@ else{
 		<div class='topnav'>
 			<a class='dash' href='Dashboard.html'>Dashboard</a>
 			<a class='dash' href='News.php'>News</a>
-			<a class='dash' href='Search.html'>Search</a>
+			<a class='dash' href='Search.php'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.html'>Login</a>
