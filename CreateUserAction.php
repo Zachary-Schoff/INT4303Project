@@ -80,6 +80,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 			<a class='dash' href='Search.php'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
+			<a class='dash' href='Message.php'>Message</a>
 			<a class='dash' href='Logout.php'>Logout</a>
 			<a style = 'width'>
 				<form class='dash' action = 'Search.php'>
@@ -127,6 +128,7 @@ else{
 			<a class='dash' href='Search.php'>Search</a>
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
+			<a class='dash' href='Message.php'>Message</a>
 			<a class='dash' href='Login.php'>Login</a>
 			<a style = 'width'>
 				<form class='dash' action = 'Search.php'>
