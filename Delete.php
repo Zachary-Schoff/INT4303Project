@@ -3,14 +3,15 @@ include 'Connection.php';
 //require "Login.php";
 session_start();
 
+$message = $_POST['message'];
 $userid = $_SESSION['user'];
 
-$sqldelete = "DELETE FROM user WHERE userid = $userid";
+$sqldelete = "DELETE FROM user WHERE userid = ''$userid'";
 
 $result = $conn->query($sqldelete);
 
 if ($result) {
-	session_destroy();
+
 	echo "<!doctype html>
 	<html>
 	<head>
