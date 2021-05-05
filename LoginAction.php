@@ -33,13 +33,9 @@ if ($result = $conn->query($sql)){
 		
 		if ($fresult->num_rows > 0){
 			while($frow = $fresult->fetch_row()){
-				// print_r($frow);
-				// echo("</br>");
 				$pullfollow = "SELECT * FROM user WHERE userid = $frow[1];";
 				if ($lresult = $conn->query($pullfollow)){
 					while($lrow = $lresult->fetch_row()){
-						// print_r($lrow);
-						// echo("</br>");
 						$fuid = $lrow[0];
 						$fnickname = $lrow[1];
 						$fpicture = "image/".$lrow[4];
@@ -126,7 +122,7 @@ if ($result = $conn->query($sql)){
 								<a class='das' href='News.php'>News</a>
 								<a class='dash' href='Profile.html'>Profile</a>
 								<a class='dash' href='About.php'>About</a>
-								<a class='dash' href='Login.php'>Login</a>
+								<a class='dash' href='Logout.php'>Logout</a>
 								<a>
 									<form class='dash' action = 'SearchAction.php'>
 										<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 100%; text-align: right'>
