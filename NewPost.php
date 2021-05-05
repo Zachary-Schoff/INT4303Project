@@ -1,6 +1,8 @@
 <?php
 include 'Connection.php';
 
+session_start();
+
 if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 	echo "<!doctype html>
 	<html>

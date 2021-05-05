@@ -19,13 +19,13 @@ if ($result = $conn->query($sql)){
 		$dob = $row[8];
 		
 		session_start();
-		$_SESSION["user"] = $uid;
-		$_SESSION["nick"] = $nickname;
-		$_SESSION["pic"] = $picture;
-		$_SESSION["bio"] = $bio;
-		$_SESSION["fname"] = $fname;
-		$_SESSION["lname"] = $lname;
-		$_SESSION["dob"] = $dob;
+		$_SESSION['user'] = $uid;
+		$_SESSION['nick'] = $nickname;
+		$_SESSION['pic'] = $picture;
+		$_SESSION['bio'] = $bio;
+		$_SESSION['fname'] = $fname;
+		$_SESSION['lname'] = $lname;
+		$_SESSION['dob'] = $dob;
 		
 		$followsql = "SELECT user.userid, following.followid, following.followerid FROM user JOIN following ON user.userid=following.followerid WHERE user.userid = $uid;";
 		

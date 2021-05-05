@@ -1,5 +1,6 @@
 <?php
 include 'Connection.php';
+
 session_start();
 
 $message = $_POST['message'];

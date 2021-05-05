@@ -2,6 +2,8 @@
 include 'Connection.php';
 include 'Style.css';
 
+session_start();
+
 $sqlget = "SELECT * FROM user";
 $sqldata = mysqli_query($conn,$sqlget) or die("Error getting data");
 

@@ -1,6 +1,8 @@
 <?php
 include 'Connection.php';
 
+session_start();
+
 $sqlget = "SELECT post.message, post.dateposted, user.nickname FROM post LEFT JOIN user ON post.userid = user.userid;";
 $sqldata = mysqli_query($conn,$sqlget) or die("Error getting data");
 

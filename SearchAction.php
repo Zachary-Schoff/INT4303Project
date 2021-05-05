@@ -1,6 +1,8 @@
 <?php
 include 'Connection.php';
 
+session_start();
+
 $search = $_REQUEST['input'];
 $sqlget = "SELECT post.message, post.dateposted, user.nickname FROM post LEFT JOIN user ON post.userid = user.userid WHERE message LIKE '%$search%'";
 $sqlsnag = "SELECT nickname FROM user WHERE nickname LIKE '%$search%'";

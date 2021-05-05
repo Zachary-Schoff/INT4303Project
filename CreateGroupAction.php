@@ -1,6 +1,8 @@
 <?php
 include 'Connection.php';
 
+session_start();
+
 $gname = $_REQUEST['groupname'];
 $description = $_REQUEST['groupdesc'];
 
