@@ -48,7 +48,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 		<input type='submit' name='submit' value='Submit'>
 	</form>
 </body>
-</html>;
+</html>";
 	}
 else{
 	echo "<!doctype html>
