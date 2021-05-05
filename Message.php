@@ -4,7 +4,7 @@ include 'Connection.php';
 session_start();
 
 $userid = $_SESSION['user'];
-$nickname = $_SESSION['nickname'];
+$nickname = $_SESSION['nick'];
 
 /*$sqlget = "SELECT messages.userid, user.userid, messages.dateposted, messages.senderNickname FROM messages LEFT JOIN user ON messages.userid = user.userid WHERE message LIKE '$userid'";*/
 
@@ -28,10 +28,10 @@ echo ("
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='Login.html'>Login</a>
 			<a class='dash' href='message.php'>Messages</a>
-			<a>
+			<a style = 'width'>
 				<form class='dash' action = 'Search.php'>
-					<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 100%; text-align: right; color: black;'>
-					<input class='btn btn-outline-success' type='submit'>
+					<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 70%; float: left'>
+					<input class='btn btn-outline-success' type='submit' style='float: right'>
 				</form>
 			</a>
 		</div>
@@ -42,7 +42,7 @@ echo ("
 echo "<h1 style = 'padding-bottom: 0'>Messages For: " . $nickname . "</h1>";
 echo ("<table class='table table-dark table-striped' style = 'padding-top: 0'>
 		<tr><th>Messages With</th></tr>");
-if ($result->num_rows > 0) {
+if ($result) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
     echo "<tr><td>" . "<a href = 'messagesSpecific.php' rel = 'specific'>" . $row["Nickname"]. "</a></td></tr>";
