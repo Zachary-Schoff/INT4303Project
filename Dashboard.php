@@ -4,9 +4,6 @@ include 'Connection.php';
 $sqlget = "SELECT post.message, post.dateposted, user.nickname FROM post LEFT JOIN user ON post.userid = user.userid;";
 $sqldata = mysqli_query($conn,$sqlget) or die("Error getting data");
 
-<?php
-include 'Connection.php';
-
 if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 	echo "<!doctype html>
 	<html>
@@ -71,7 +68,6 @@ else{
 	</body>
 	</html>";
 	}
-?>
 
 echo "<table class='table table-dark table-striped'>";
 echo "<tr><th>Nickname</th><th>Message</th><th>Date Posted</th></tr>";
