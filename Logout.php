@@ -1,6 +1,7 @@
 <?php
 include 'Connection.php';
 
+session_start();
 session_destroy();
 
 $sqlget = "SELECT post.message, post.dateposted, user.nickname FROM post LEFT JOIN user ON post.userid = user.userid;";
