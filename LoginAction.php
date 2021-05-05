@@ -100,6 +100,7 @@ if ($result = $conn->query($sql)){
 											<p>Last Name: ".$flname."</p></br>
 										</td></tr>
 									</table>
+									<a href = 'Delete.php rel='delete'>Delete Profile</a>'
 								</body>
 							</html>"
 						);
