@@ -35,6 +35,8 @@ echo ("
 				</form>
 			</a>
 		</div>
+		<a href= 'NewMessage.php'></a>
+		</form>
 	</body>
 	</html>");
 echo "<h1 style = 'padding-bottom: 0'>Messages For: " . $nickname . "</h1>";
