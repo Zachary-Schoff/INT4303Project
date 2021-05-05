@@ -81,8 +81,14 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Logout.php'>Logout</a>
-		</div>
-		<form method='post' action='CreateUserAction.php' enctype='multipart/form-data'>
+			<a style = 'width'>
+				<form class='dash' action = 'Search.php'>
+					<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 70%; float: left'>
+					<input class='btn btn-outline-success' type='submit' style='float: right'>
+				</form>
+				</a>
+			</div>
+		<form method='post' action='CreateUser.php' enctype='multipart/form-data'>
 			<label>Username</label><br>
 			<input type='text' id='username' name='username'><br>
 			<label>Profile picture</label><br>
@@ -122,8 +128,14 @@ else{
 			<a class='dash' href='Profile.html'>Profile</a>
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.php'>Login</a>
-		</div>
-		<form method='post' action='CreateUserAction.php' enctype='multipart/form-data'>
+			<a style = 'width'>
+				<form class='dash' action = 'Search.php'>
+					<input class='form-control me-2'  id = 'input' name = 'input' type='text' placeholder='Search' aria-label='Search' style = 'width: 70%; float: left'>
+					<input class='btn btn-outline-success' type='submit' style='float: right'>
+				</form>
+				</a>
+			</div>
+		<form method='post' action='CreateUser.php' enctype='multipart/form-data'>
 			<label>Username</label><br>
 			<input type='text' id='username' name='username'><br>
 			<label>Profile picture</label><br>
