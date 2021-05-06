@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 05, 2021 at 07:31 PM
+-- Generation Time: May 06, 2021 at 08:47 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -54,8 +54,7 @@ CREATE TABLE IF NOT EXISTS `following` (
 --
 
 INSERT INTO `following` (`followid`, `followerid`) VALUES
-(9, 3),
-(9, 4);
+(9, 3);
 
 -- --------------------------------------------------------
 
@@ -72,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `userid` int NOT NULL,
   PRIMARY KEY (`postid`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `post`
@@ -82,7 +81,8 @@ INSERT INTO `post` (`postid`, `message`, `dateposted`, `file`, `userid`) VALUES
 (1, 'Hey guys the post function works', '2021-04-21 17:15:48', NULL, 3),
 (2, 'This is going to be a good day', '2021-04-21 17:19:40', NULL, 3),
 (3, 'Test	', '2021-04-21 17:21:05', NULL, 3),
-(4, 'In IT Capstone', '2021-04-21 17:52:25', NULL, 3);
+(4, 'In IT Capstone', '2021-04-21 17:52:25', NULL, 3),
+(5, 'Test', '2021-05-05 17:58:23', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lname` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user`
@@ -111,12 +111,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`userid`, `nickname`, `password`, `email`, `profilepicture`, `bio`, `fname`, `lname`, `dob`) VALUES
 (1, 'TEST', '134567', 'test@t.com', NULL, NULL, NULL, NULL, NULL),
 (2, 'testnick', '1234', 'test@gmail.com', NULL, NULL, 'testfirstname', 'testlastname', '2019-01-01'),
-(3, 'Schoff', '999999999', 'zschoff@me.com', 'Schoff.png', 'LTU Student, Part Time TSE at Imagesoft in Southfield', 'Zach', 'Schoff', '1999-02-12'),
-(4, 'Smitherson', 'Tdas', '$js@icloud.com', NULL, NULL, 'Joe', 'Smith', NULL),
-(5, 'IllNeverGetThoseHoursBack', 'IFeelRealSmart', 'FilesInThe@RootFolderOf.WAMP', NULL, NULL, 'IHadForgot', 'ToPutThese', NULL),
+(3, 'Schoff', 'Zts021299', 'zschoff@me.com', 'Schoff.png', 'LTU Student, Part Time TSE at Imagesoft in Southfield', 'Zach', 'Schoff', '1999-02-12'),
 (9, 'Bill Nye', 'THEscienceGUY2002', 'bnye@harvard.edu', 'Bill.jpg', 'The Science GUUUUUUUUUUUUUUY', 'William', 'Nye', NULL),
-(12, 'ABC', '123', 'A@b.com', 'A@b.com.png', 'AIFWIhg', 'A', 'B', NULL),
-(25, 'Aber', 'ASFhj', 'A@G.edu', '1Capture.PNG', '', 'asdfhgj', 'sdbv', NULL);
+(25, 'Aber', 'ASFhj', 'A@G.edu', '1Capture.PNG', '', 'asdfhgj', 'sdbv', NULL),
+(27, 'AllNight', 'Midnight', 'night@dark.com', 'Night.jpeg', 'Its gonna be a long night', 'A', 'Knight', NULL),
+(28, 'Penguin0', 'Moisture', 'critical@gmail.com', 'Penguin.jpg', 'Moistcritical', 'Charlie', 'Smith', NULL),
+(29, 'BoyScout42', 'BSoA', 'BSEnthusiast@gmail.com', 'BS.jpg', 'I loved my time in the boy scouts, and now I am an Eagle Scout at LTU', 'Zac', 'Adams', NULL);
 
 -- --------------------------------------------------------
 
@@ -131,16 +131,16 @@ CREATE TABLE IF NOT EXISTS `usergroup` (
   `gpicture` varchar(32) DEFAULT NULL,
   `gdescription` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`groupid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `usergroup`
 --
 
 INSERT INTO `usergroup` (`groupid`, `gname`, `gpicture`, `gdescription`) VALUES
-(1, 'Test Group', 'Test Group.png', 'I AM TESTING THIS AT 4 AM, PROCRASTINATION IS BAD'),
-(2, 'LTU Soccer', 'LTU Soccer.png', 'ABASFDG'),
-(3, 'Web Design', 'Web Design.png', 'A group all about web design');
+(2, 'LTU Soccer', 'LTU Soccer.png', 'Official group of the soccer team'),
+(3, 'Web Design', 'Web Design.png', 'A group all about web design'),
+(4, 'IT Capstone Group', 'IT Capstone Group.png', 'This group was created during the IT Capstone Presentation');
 
 -- --------------------------------------------------------
 
@@ -165,6 +165,12 @@ CREATE TABLE IF NOT EXISTS `userxusergroup` (
 --
 ALTER TABLE `following`
   ADD CONSTRAINT `followid` FOREIGN KEY (`followid`) REFERENCES `user` (`userid`);
+
+--
+-- Constraints for table `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `userxusergroup`

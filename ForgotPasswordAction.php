@@ -3,17 +3,12 @@ include 'Connection.php';
 
 session_start();
 
-$message = $_POST['message'];
-$userid = $_SESSION['user'];
+$email = $_REQUEST["email"];
+$password = $_REQUEST["password"];
 
-$sql = "INSERT INTO post (message, userid) VALUES ('$message', $userid);";
+$sql = " UPDATE user SET password = '$password' WHERE email = '$email';";
 
-$result = $conn->query($sql);
-
-if ($result) {
-	$sqlget = "SELECT post.message, post.dateposted, user.nickname FROM post LEFT JOIN user ON post.userid = user.userid ORDER BY post.dateposted DESC;";
-	$sqldata = mysqli_query($conn,$sqlget) or die("Error getting data");
-
+if($conn-> query($sql) === TRUE){	
 	if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 		echo "<!doctype html>
 		<html>
@@ -22,9 +17,11 @@ if ($result) {
 		<title>LTU Interlink</title>
 			<link href = 'Dashboard.php'>
 			<link href = 'Dashboard.php' rel = 'connection'>
+			<link href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet' id='bootstrap-css'>
 			<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6' crossorigin='anonymous'>
 			<link href = 'Style.css' rel = 'stylesheet'>
 		</head>
+
 		<body>
 			<h1 class = 'header'>LTU Interlink</h1>
 			<div class='topnav'>
@@ -40,10 +37,6 @@ if ($result) {
 					</form>
 				</a>
 			</div>
-			<h3 class='title'>Dashboard</h3>
-			<form method='post' action='NewPost.php'>
-				<input type='submit' value='Add a post'>
-			</form>
 		</body>
 		</html>";
 		}
@@ -53,14 +46,13 @@ if ($result) {
 		<head>
 		<meta charset='utf-8'>
 		<title>LTU Interlink</title>
-			<link href = 'Dashboard.php'>
-			<link href = 'Dashboard.php' rel = 'connection'>
+			<link href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet' id='bootstrap-css'>
 			<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6' crossorigin='anonymous'>
 			<link href = 'Style.css' rel = 'stylesheet'>
 		</head>
 
 		<body>
-			<h1 class = 'header'>LTU Interlink</h1>
+			<h1 class='header'>LTU Interlink</h1>
 			<div class='topnav'>
 				<a class='dash' href='Dashboard.php'>Dashboard</a>
 				<a class='dash' href='CreateGroup.php'>Groups</a>
@@ -74,31 +66,27 @@ if ($result) {
 					</form>
 				</a>
 			</div>
-			<h3 class='title'>Dashboard</h3>
-			<form method='post' action='NewPost.php'>
-				<input type='submit' value='Add a post'>
-			</form>
+			<div style = 'position:relative; left:40px;'>
+				<form method='post' action='LoginAction.php'>
+					<label for='username'>Email</label><br>
+					<input type='text' id='Email' name='Email'><br>
+					<label for='password'>Password</label><br>
+					<input type='password' id='password' name='password'>
+					<input type='submit' value='Login'><br>
+				</form>
+				<form method='post' action='ForgotPassword.php'>
+					<input type='submit' value='Forgot Password?'>
+				</form>
+				<br>
+				<form method='post' action='CreateUser.php'>
+					<label>Don't have an account? Make one here</label>
+					<input type='submit' value='Create Account'>
+				</form>
+			</div>
 		</body>
 		</html>";
-		}
-
-	echo "<table class='table table-dark table-striped'>";
-	echo "<tr><th>Nickname</th><th>Message</th><th>Date Posted</th></tr>";
-
-	while ($row = mysqli_fetch_array($sqldata, MYSQLI_ASSOC)){
-		echo "<tr><td>";
-		echo $row['nickname'];
-		echo "</td><td>";
-		echo $row['message'];
-		echo "</td><td>";
-		echo $row['dateposted'];
-		echo "</td></tr>";
 	}
-	echo "</table>";
-	} else {
-	  echo "Something went wrong.";
-	  echo $_SESSION["nick"];
-	}
-$conn->close();
-
+} else{
+	echo "Error: " . $sql . "<br>" . $conn->error;
+}
 ?>
