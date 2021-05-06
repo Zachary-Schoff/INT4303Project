@@ -8,7 +8,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 	<html>
 	<head>
 	<meta charset='utf-8'>
-	<title>Create an LTU Group</title>
+	<title>Untitled Document</title>
 		<link href = 'Style.css' rel = 'stylesheet'>
 	</head>
 
@@ -22,15 +22,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Logout.php'>Logout</a>
 		</div>
-		<form method='post' action='CreateGroupAction.php' enctype='multipart/form-data'>
-			<label>Group Name</label><br>
-			<input type='text' id='groupname' name='groupname'><br>
-			<label>Group Picture</label><br>
-			<input type='file' id='grouppic' name='grouppic'><br>
-			<label>Group Description</label><br>
-			<textarea id='groupdesc' name='groupdesc' rows='4' cols='32'></textarea><br>
-			<input type='submit' value='Submit'>
-		</form>
+		<h3>This page will be for recent news or important information regarding the school</h3>
 	</body>
 	</html>";
 	}
@@ -39,7 +31,7 @@ else{
 	<html>
 	<head>
 	<meta charset='utf-8'>
-	<title>Create an LTU Group</title>
+	<title>Untitled Document</title>
 		<link href = 'Style.css' rel = 'stylesheet'>
 	</head>
 
@@ -53,15 +45,7 @@ else{
 			<a class='dash' href='About.php'>About</a>
 			<a class='dash' href='Login.php'>Login</a>
 		</div>
-		<form method='post' action='CreateGroupAction.php' enctype='multipart/form-data'>
-			<label>Group Name</label><br>
-			<input type='text' id='groupname' name='groupname'><br>
-			<label>Group Picture</label><br>
-			<input type='file' id='grouppic' name='grouppic'><br>
-			<label>Group Description</label><br>
-			<textarea id='groupdesc' name='groupdesc' rows='4' cols='32'></textarea><br>
-			<input type='submit' value='Submit'>
-		</form>
+		<h3>This page will be for recent news or important information regarding the school</h3>
 	</body>
 	</html>";
 	}
